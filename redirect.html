@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+var appLink = 'http://itunes.apple.com/us/app/you-wang/id975408164?mt=8';
+var appUrlScheme = 'youwantUwifi://';
+
+var redirect = function (location, t) {
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('src', location);
+    iframe.setAttribute('width', '1px');
+    iframe.setAttribute('height', '1px');
+    iframe.setAttribute('position', 'absolute');
+    iframe.setAttribute('top', '0');
+    iframe.setAttribute('left', '0');
+    document.documentElement.appendChild(iframe);
+    if (t) {
+        setTimeout(function() {
+            iframe.parent.removeChild(iframe);
+            iframe = null;
+        }, 300);
+    } else {
+        iframe.parent.removeChild(iframe);
+        iframe = null;
+    }
+};
+
+setTimeout(function () {
+    redirect(appLink, 500);
+}, 25);
+
+redirect(appUrlScheme);
+</script>
+<body></body>
+</html>
