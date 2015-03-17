@@ -17,7 +17,7 @@ var redirect = function (location, t) {
         setTimeout(function() {
             iframe.parent.removeChild(iframe);
             iframe = null;
-        }, 300);
+        }, t);
     } else {
         iframe.parent.removeChild(iframe);
         iframe = null;
